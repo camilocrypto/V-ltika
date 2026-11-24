@@ -12,11 +12,18 @@ python -m http.server 8000 --directory dist
 
 Open [localhost:8000](http://localhost:8000). The passenger, sender, recipient and rider roles are played on one device. The interface is in Chilean Spanish. Eight predefined Santiago landmarks provide 56 origin–destination combinations.
 
-1. Select **Viaje en moto** or **Envío pequeño**, two landmarks and a payment method.
-2. Review the fare in CLP and its optional XLM equivalent. Confirm the simulation to lock the quote.
-3. Review the rider's offer, requester alias, route, service type, payment method, commission and projected net amount. Accept or decline.
-4. Open the fictional customer's pickup code and enter it in the rider field. After arrival, a parcel also needs an independent delivery code. Practice codes expire after five minutes and allow three attempts.
-5. Review the receipt. For XLM quotes, choose whether to publish a test payment. The receipt links to Horizon after confirmation.
+1. Open **Perfiles**. Select **Pasajero**, **Remitente** or **Transportista**. Confirm the code from the fictional inbox and run the sample evidence review. You can inspect each role directly from the service flow.
+2. Select **Viaje en moto** or **Envío pequeño**, two landmarks and a payment method.
+3. Review the fare in CLP and its optional XLM equivalent. Confirm the simulation to lock the quote.
+4. Review the rider's offer, requester alias, route, service type, payment method, commission and projected net amount. Accept or decline.
+5. Open the fictional customer's pickup code and enter it in the rider field. After arrival, a parcel also needs an independent delivery code. Practice codes expire after five minutes and allow three attempts.
+6. Review the receipt. For XLM quotes, choose whether to publish a test payment. The receipt links to Horizon after confirmation.
+
+## Profiles and verification
+
+Open `/#perfiles/passenger`, `/#perfiles/sender` or `/#perfiles/carrier` in the web demo. Each role has its own local profile and contact check. The fictional inbox code expires after five minutes and locks after three failed attempts. The sample review covers a matching identity document and a simulated selfie/liveness result. The carrier review also checks the motorcycle licence expiry, vehicle record and insurance. A mismatched document, expired licence or different motorcycle shows the failed checks and stops that profile from proceeding. Use the matching sample to try again.
+
+New requests require an approved customer demo profile. Accepting an offer requires an approved carrier demo profile. Existing trips that have already started can be completed. Trip PINs validate a pickup or handoff, while Stellar confirms the test payment. The identity exercise runs on the device with fictional records, and the public ledger receives no profile documents, contact details or verification results. Real identity assurance would require a trusted issuer or verification provider and server-side enforcement. No SMS, biometric capture or government lookup takes place in this demo.
 
 ## Fares and Stellar
 
@@ -45,6 +52,7 @@ Reviewed on **24 November 2026**. The app exposes the sources in Spanish in **Pr
 | Path | Purpose |
 | --- | --- |
 | `dist/` | Self-contained static web app, local assets, fonts and third-party notices |
+| `dist/profiles.js` | Local role profiles, sample checks and review outcomes |
 | `dist/model.js` | Santiago route graph and pricing |
 | `dist/app.js` | Quotes, rider decisions, verification, receipts and privacy controls |
 | `dist/payment.js` | Optional Stellar Testnet payment and retry handling |
@@ -59,4 +67,4 @@ Use JDK 17, Android SDK 35 and the included Gradle 8.9 wrapper. From the `androi
 ./gradlew assembleDebug
 ```
 
-On Windows use `gradlew.bat assembleDebug`. Output: `app/build/outputs/apk/debug/`. The build synchronizes the web assets from `../dist`, excluding the download directory. Android 9 or later with an updated Android System WebView is recommended. The 0.2.0 APK installs as **VÓLTIKA Demo CL**, alongside the initial demo. Each installation has its own history.
+On Windows use `gradlew.bat assembleDebug`. Output: `app/build/outputs/apk/debug/`. The build synchronizes the web assets from `../dist`, excluding the download directory. Android 9 or later with an updated Android System WebView is recommended. The 0.3.0 APK updates **VÓLTIKA Demo CL** 0.2.0 in place and installs alongside the initial 0.1 demo. Each installation has its own history.

@@ -9,7 +9,7 @@
 <body>
   <header class="top"><div class="wrap bar">
     <a class="brand" href="#viajar" aria-label="Vóltika Moto, ir al inicio"><svg viewBox="0 0 48 38" aria-hidden="true"><path d="M1 5h12l5 15L34 2h13L17 37h-5z"/><path d="m27 32 12-14h7L34 32z"/></svg><span>VÓLTIKA<small>MOTO</small></span></a>
-    <nav aria-label="Principal"><button id="navRide" class="nav active"><i data-icon="route"></i>Simular</button><button id="navHistory" class="nav"><i data-icon="history"></i>Actividad</button></nav>
+    <nav aria-label="Principal"><button id="navRide" class="nav active"><i data-icon="route"></i>Simular</button><button id="navHistory" class="nav"><i data-icon="history"></i>Actividad</button><button id="navProfile" class="nav"><i data-icon="person"></i>Perfiles</button></nav>
     <span class="mode"><b></b> Modo demo</span>
   </div></header>
   <main id="main" class="wrap">
@@ -35,11 +35,16 @@
       </div>
     </section>
     <section id="historyView" hidden><div class="history-head"><div class="location"><i data-icon="history"></i>ACTIVIDAD</div><h1>Actividad</h1><p>Servicios de práctica guardados en este dispositivo.</p></div><div id="historyRows"></div></section>
+    <section id="profileView" hidden aria-labelledby="profileTitle">
+      <div class="history-head"><h1 id="profileTitle" tabindex="-1">Perfiles y verificación</h1><p>Elige un rol y revisa qué acredita cada comprobación de práctica.</p></div>
+      <div id="profileRoles" class="role-switch" role="group" aria-label="Rol del perfil"></div>
+      <div id="profileBody"></div>
+    </section>
     <section id="guideView" hidden aria-labelledby="guideTitle">
       <div class="history-head"><div class="location">VÓLTIKA · CHILE</div><h1 id="guideTitle" tabindex="-1">Privacidad y ayuda</h1><p>Información del simulador · Actualizada el 24 de noviembre de 2026.</p></div>
       <div class="guide-grid">
         <section class="panel guide-card"><h2>Tus datos en este dispositivo</h2>
-          <p>La selección de puntos y pago puede quedar guardada al editar la cotización. Al confirmar una práctica se guardan los puntos predefinidos, el servicio, el medio de pago, la cotización, las horas y los estados. Los códigos de práctica caducan. Puedes consultar y borrar el historial desde aquí.</p>
+          <p>La selección de puntos y pago puede quedar guardada al editar la cotización. Al confirmar una práctica se guardan los puntos predefinidos, el servicio, el medio de pago, la cotización, las horas y los estados. También se guarda el resultado de las revisiones ficticias por rol. Los códigos de práctica caducan. Puedes consultar y borrar el historial desde aquí.</p>
           <p>La demo funciona con identidades ficticias y un mapa esquemático. No solicita RUT, documentos, teléfono, cámara, micrófono ni GPS. La web privada tiene un acceso de ChatGPT separado del historial local.</p>
           <div class="actions"><button class="secondary" data-do="copyData">Ver y exportar mis datos</button><button class="plain" data-do="forget">Borrar mis datos locales</button></div></section>
         <section class="panel guide-card"><h2>Qué se comparte con Stellar</h2>
@@ -64,5 +69,5 @@
   <footer class="wrap"><span>VÓLTIKA <b>/</b> MOTO</span><div class="footer-links"><button class="footer-button" data-do="guide">Privacidad y ayuda</button><a id="androidDownload" href="android/Voltika-Moto-Demo.apk" download>Descargar Android</a></div></footer>
   <dialog id="modal" aria-labelledby="modalTitle"><div id="modalBody"></div></dialog>
   <div class="sr" role="status" aria-live="polite" id="announcer"></div>
-  <script defer src="model.js"></script><script defer src="payment.js"></script><script defer src="app.js"></script>
+  <script defer src="model.js"></script><script defer src="payment.js"></script><script defer src="profiles.js"></script><script defer src="app.js"></script>
 </body></html>
