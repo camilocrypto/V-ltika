@@ -1,0 +1,18 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'cl.voltika.moto'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'cl.voltika.moto.demo'
+        minSdk 28
+        targetSdk 35
+        versionCode 2
+        versionName '0.2.0'
+    }
+    sourceSets.main.assets.srcDir(layout.buildDirectory.dir('generated/voltika-assets'))
+}
+tasks.register('syncWeb', Sync) {
+    from(rootProject.file('../dist')) { exclude 'android/**' }
+    into(layout.buildDirectory.dir('generated/voltika-assets'))
+}
+tasks.named('preBuild').configure { dependsOn 'syncWeb' }

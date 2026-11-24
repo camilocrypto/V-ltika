@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#101110">
+  <meta name="description" content="Simulador chileno de viajes y envíos en moto con cotización en pesos y Stellar Testnet.">
+  <title>VÓLTIKA Moto · Santiago</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top"><div class="wrap bar">
+    <a class="brand" href="#viajar" aria-label="Vóltika Moto, ir al inicio"><svg viewBox="0 0 48 38" aria-hidden="true"><path d="M1 5h12l5 15L34 2h13L17 37h-5z"/><path d="m27 32 12-14h7L34 32z"/></svg><span>VÓLTIKA<small>MOTO</small></span></a>
+    <nav aria-label="Principal"><button id="navRide" class="nav active"><i data-icon="route"></i>Simular</button><button id="navHistory" class="nav"><i data-icon="history"></i>Actividad</button></nav>
+    <span class="mode"><b></b> Modo demo</span>
+  </div></header>
+  <main id="main" class="wrap">
+    <section id="home">
+      <section class="hero" aria-label="Vóltika en Santiago">
+        <picture><source media="(max-width:620px)" srcset="assets/night-ride-mobile.webp"><img src="assets/night-ride.webp" alt="Motociclista de Vóltika frente a las luces nocturnas de Santiago"></picture>
+        <div class="hero-copy"><div class="location"><i data-icon="pin"></i>SANTIAGO DE CHILE</div>
+          <h1>ACTIVA EL<br><em>MODO MOTO.</em></h1>
+          <p>Prueba viajes y envíos en Santiago. <strong>20% de descuento simulado con XLM.</strong></p>
+        </div>
+      </section>
+      <div class="dashboard" id="desk">
+        <section class="panel planner" id="planner" aria-label="Simulador de servicios"></section>
+        <section class="panel map-panel" aria-labelledby="mapTitle">
+          <div class="map-head"><div class="heading"><span class="title-icon"><i data-icon="map"></i></span><h2 id="mapTitle">Tu recorrido</h2></div><span class="map-city">SCL <b>/</b> CL</span></div>
+          <div class="map-canvas" id="mapCanvas">
+            <svg id="routeMap" role="img" aria-label="Esquema de tu recorrido en Santiago" preserveAspectRatio="xMidYMid meet"></svg>
+            <div class="map-tools"><button id="zoomIn" aria-label="Acercar mapa" title="Acercar"><i data-icon="plus"></i></button><button id="zoomOut" aria-label="Alejar mapa" title="Alejar"><i data-icon="minus"></i></button></div>
+            <span class="map-note">Mapa esquemático</span>
+          </div>
+          <div class="metrics" id="metrics"></div>
+        </section>
+      </div>
+    </section>
+    <section id="historyView" hidden><div class="history-head"><div class="location"><i data-icon="history"></i>ACTIVIDAD</div><h1>Actividad</h1><p>Servicios de práctica guardados en este dispositivo.</p></div><div id="historyRows"></div></section>
+    <section id="guideView" hidden aria-labelledby="guideTitle">
+      <div class="history-head"><div class="location">VÓLTIKA · CHILE</div><h1 id="guideTitle" tabindex="-1">Privacidad y ayuda</h1><p>Información del simulador · Actualizada el 24 de noviembre de 2026.</p></div>
+      <div class="guide-grid">
+        <section class="panel guide-card"><h2>Tus datos en este dispositivo</h2>
+          <p>La selección de puntos y pago puede quedar guardada al editar la cotización. Al confirmar una práctica se guardan los puntos predefinidos, el servicio, el medio de pago, la cotización, las horas y los estados. Los códigos de práctica caducan. Puedes consultar y borrar el historial desde aquí.</p>
+          <p>La demo funciona con identidades ficticias y un mapa esquemático. No solicita RUT, documentos, teléfono, cámara, micrófono ni GPS. La web privada tiene un acceso de ChatGPT separado del historial local.</p>
+          <div class="actions"><button class="secondary" data-do="copyData">Ver y exportar mis datos</button><button class="plain" data-do="forget">Borrar mis datos locales</button></div></section>
+        <section class="panel guide-card"><h2>Qué se comparte con Stellar</h2>
+          <p>Solo si confirmas la prueba se contacta a Friendbot y Horizon. Esos servicios reciben solicitudes de red, incluida tu dirección IP. En Testnet son públicos las direcciones de las cuentas, el monto, la hora y una referencia aleatoria. La clave temporal permanece en memoria.</p>
+          <p>Los lugares, códigos y datos de la oferta quedan en el dispositivo. El borrado local no retira transacciones ya enviadas. Las herramientas de la red de prueba pueden consultar o copiar los registros.</p></section>
+        <section class="panel guide-card"><h2>Alcance y asistencia</h2>
+          <p>Simulaciones gratuitas de pasajero, remitente y motociclista en el mismo dispositivo. La app no despacha motos, transporta paquetes, procesa pesos ni ofrece una central de emergencias. Los fondos de Testnet son de práctica.</p>
+          <p>Para una emergencia real en Chile llama directamente al <strong>131 (SAMU)</strong> o al <strong>133 (Carabineros)</strong>. En un servicio comercial puedes consultar tus derechos y canales en SERNAC.</p>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.sernac.cl/portal/604/w3-propertyvalue-20982.html">Derechos del consumidor en SERNAC</a></section>
+        <section class="panel guide-card"><h2>Antes de operar en Chile</h2>
+          <p>Para transportar pasajeros por una tarifa, el operador debe verificar la habilitación específica de la modalidad y de los vehículos con Transportes y contar con la cobertura correspondiente. La Ley 21.553 contempla una vía de autorización de pilotos, sujeta al procedimiento reglamentario.</p>
+          <p>Un piloto comercial de reparto requiere determinar el régimen laboral, los seguros y elementos de protección, la información previa al trabajador y los canales efectivos de atención. El simulador no acredita esas gestiones.</p>
+          <details><summary>Consultar normas oficiales</summary><ul>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.bcn.cl/leychile/navegar?idNorma=1191380">Ley 21.553 · Transporte mediante aplicaciones</a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.bcn.cl/leychile/navegar?idNorma=1173544">Ley 21.431 · Trabajo mediante plataformas</a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.bcn.cl/leychile/navegar?idNorma=141599">Ley 19.628 · Protección de la vida privada</a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.diariooficial.interior.gob.cl/publicaciones/2026/11/23/44606/01/2907953.pdf">Ley 21.855 · Vigencia general de la reforma de datos el 15 de octubre de 2027</a></li>
+          </ul></details></section>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span>VÓLTIKA <b>/</b> MOTO</span><div class="footer-links"><button class="footer-button" data-do="guide">Privacidad y ayuda</button><a id="androidDownload" href="android/Voltika-Moto-Demo.apk" download>Descargar Android</a></div></footer>
+  <dialog id="modal" aria-labelledby="modalTitle"><div id="modalBody"></div></dialog>
+  <div class="sr" role="status" aria-live="polite" id="announcer"></div>
+  <script defer src="model.js"></script><script defer src="payment.js"></script><script defer src="app.js"></script>
+</body></html>
